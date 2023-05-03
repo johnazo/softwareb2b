@@ -1,17 +1,17 @@
 <div class="card-container">
-    <mat-card class="example-card" *ngFor="let submodule of appSubModules">
+    <mat-card class="example-card" *ngFor="let submodule of appSubModules" (click)="submoduleClicked(submodule)">
         <mat-card-header>
             <mat-card-title>{{ submodule.name }}</mat-card-title>
             <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="/assets/img/module.png" alt="Module {{ submodule.name }}">
+        <img mat-card-image src="{{ submodule.img_filename || genericImg }}" alt="Module {{ submodule.name }}">
         <mat-card-content>
             <p>
                 {{ submodule.description }}
             </p>
         </mat-card-content>
         <mat-card-actions>
-            <button color="primary" mat-button (click)="buttonClicked(submodule)">Abir Vínculo</button>
+            <button color="primary" mat-button (click)="buttonClicked($event, submodule)">Abir Vínculo</button>
         </mat-card-actions>
     </mat-card>
 </div>

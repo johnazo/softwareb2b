@@ -11,7 +11,8 @@ import { ApplicationService } from '../core/application.service';
 })
 export class ModulesComponent implements OnInit {
 
-  state: AppState | null = null
+  state: AppState | null
+  genericImg: string = '/assets/img/module.png'
 
   appModules: AppModule[] = []
   constructor(
@@ -20,7 +21,7 @@ export class ModulesComponent implements OnInit {
     private appDataService: AppDataService,
     private appService: ApplicationService,
   ) {
-
+    this.state = this.appService.appStateValue
   }
 
   moduleClicked(item: any) {
@@ -36,7 +37,6 @@ export class ModulesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.state = this.appService.appStateValue
     if (!this.state || !this.state.app)
       this.router.navigate(['/'])
     else {

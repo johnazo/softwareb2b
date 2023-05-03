@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { ApplicationService } from './core/application.service';
 import { AppDataService } from './core/app-data.service';
 import { SubmodulesComponent } from './submodules/submodules.component';
+import { SubmoduleComponent } from './submodule/submodule.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +24,10 @@ import { SubmodulesComponent } from './submodules/submodules.component';
     ApplicationsComponent,
     ModulesComponent,
     HomeComponent,
-    SubmodulesComponent
+    SubmodulesComponent,
+    SubmoduleComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
     MatIconModule,

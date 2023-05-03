@@ -19,6 +19,7 @@ export class AppDataService {
                 id: i - 1,
                 name: "Applicación " + i,
                 description: "Descripción App " + i,
+                img_filename: "/assets/img/application.png",
                 keywords: [],
                 modules: []
             })
@@ -32,8 +33,9 @@ export class AppDataService {
         for (let i = 1; i < rand; i++) {
             modules.push({
                 id: i - 1,
-                name: "Mod " + i + " App " + app.id,
-                description: "Descripción Mod " + i + " App " + app.id,
+                name: "Mod " + i + " App " + (app.id + 1),
+                description: "Descripción Mod " + i + " App " + (app.id + 1),
+                img_filename: "/assets/img/module.png",
                 keywords: [],
                 submodules: []
             })
@@ -47,9 +49,10 @@ export class AppDataService {
         for (let i = 1; i < rand; i++) {
             submodules.push({
                 id: i - 1,
-                name: "Sub " + i + "Mod " + module.id + " App " + app.id,
-                description: "Descripción Sub " + i + "Mod " + module.id + " App " + app.id,
-                keywords: []
+                name: "Sub " + i + " Mod " + (module.id + 1) + " App " + (app.id + 1),
+                description: "Descripción Sub " + i + " Mod " + (module.id + 1) + " App " + (app.id + 1),
+                keywords: [],
+                url: 'http://demourl.submodule.softwareb2b.johncruz.co/app/' + app.id + '/mod/' + module.id + '/submod/' + (i - 1)
             })
         }
         return submodules

@@ -1,6 +1,7 @@
 mat-card {
     max-width: 200px;
     margin: 5px;
+    cursor: pointer;
 }
 
 .card-container {

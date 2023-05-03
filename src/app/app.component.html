@@ -1,10 +1,20 @@
 <mat-toolbar color="primary">
 
-  <span class="app-logo">SoftwareB2B</span>
-  <button mat-button aria-label="Aplicaciones Disponibles" routerLink="/">
+  <button class="app-logo" mat-button aria-label="Aplicaciones Disponibles" routerLink="/">
     <mat-icon>home</mat-icon>
-    Inicio
+    SoftwareB2B
   </button>
+
+  <div *ngIf="appState" class="breadcumb-div">
+    <div *ngIf="appState.app && appState.app.name"><button mat-button
+        (click)="appBtnClicked()"><span>{{appState.app.name}}</span> </button> |
+    </div>
+    <div *ngIf="appState.module && appState.module.name"><button mat-button
+        (click)="modBtnClicked()"><span>{{appState.module.name}}</span></button> | </div>
+    <div *ngIf="appState.submodule && appState.submodule.name"><button mat-button
+        (click)="subBtnClicked()"><span>{{appState.submodule.name}}</span></button></div>
+  </div>
+
   <button mat-button aria-label="Aplicaciones Disponibles" routerLink="/applications" *ngIf="false">
     <mat-icon>apps</mat-icon>
     Aplicaciones

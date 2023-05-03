@@ -13,6 +13,7 @@ export class SubmodulesComponent implements OnInit {
 
   state: AppState | null = null
   appSubModules: AppModule[] = []
+  genericImg: string = '/assets/img/module.png'
 
   constructor(
     private route: ActivatedRoute,
@@ -23,8 +24,15 @@ export class SubmodulesComponent implements OnInit {
 
   }
 
-  buttonClicked(item: any) {
+  buttonClicked(event: Event, item: any) {
+    event.stopPropagation()
     this.appService.setSubmodule(item)
+    alert(item.url)
+  }
+
+  submoduleClicked(item: AppModule) {
+    this.appService.setSubmodule(item)
+    this.router.navigate(['applications', this.state!.app!.id, 'modules', this.state!.module!.id, 'submodule', item.id])
   }
 
   private getApp(id: string) {

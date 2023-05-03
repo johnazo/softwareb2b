@@ -4,14 +4,11 @@
             <mat-card-title>{{ module.name }}</mat-card-title>
             <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="/assets/img/module.png" alt="Module {{ module.name }}">
+        <img mat-card-image src="{{ module.img_filename || genericImg }}" alt="Module {{ module.name }}">
         <mat-card-content>
             <p>
                 {{ module.description }}
             </p>
         </mat-card-content>
-        <mat-card-actions>
-            <button color="primary" mat-button>Abir Vínculo</button>
-        </mat-card-actions>
     </mat-card>
 </div>

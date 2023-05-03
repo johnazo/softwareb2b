@@ -12,3 +12,8 @@
     align-items: center;
     align-content: center;
 }
+
+.breadcumb-div {
+    padding-left: 25px;
+    display: inherit;
+}

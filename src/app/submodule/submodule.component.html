@@ -1,0 +1,16 @@
+<mat-card *ngIf="app && module && submodule">
+    <mat-card-header>
+        <mat-card-title>Aplicación: {{ app.name }} | Módulo: {{ module.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p><strong>Submódulo: </strong>
+            {{ submodule.name }}
+        </p>
+        <p><strong>Descripción: </strong>
+            {{ submodule.description }}
+        </p>
+        <p><strong>Link: </strong>
+            <a href="{{ submodule.url }}">{{ submodule.url }}</a>
+        </p>
+    </mat-card-content>
+</mat-card>
