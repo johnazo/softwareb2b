@@ -1,0 +1,14 @@
+.spacer-b2b {
+    flex: 1 1 auto;
+}
+
+.app-logo {
+    margin-right: 15px;
+}
+
+.main-content {
+    padding: 5px 15px;
+    margin: auto;
+    align-items: center;
+    align-content: center;
+}

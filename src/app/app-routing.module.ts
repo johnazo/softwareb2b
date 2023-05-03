@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SoftwareappComponent } from './softwareapp/softwareapp.component';
-import { AppmoduleComponent } from './appmodule/appmodule.component';
-import { AppsubmoduleComponent } from './appsubmodule/appsubmodule.component';
+import { ApplicationsComponent } from './applications/applications.component';
+import { ModulesComponent } from './modules/modules.component';
+import { SubmodulesComponent } from './submodules/submodules.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: 'application', component: SoftwareappComponent },
-  { path: 'appmodule', component: AppmoduleComponent },
-  { path: 'appsubmodule', component: AppsubmoduleComponent },
+  { path: '', component: HomeComponent },
+  { path: 'applications', component: ApplicationsComponent },
+  { path: 'applications/:appid/modules', component: ModulesComponent },
+  { path: 'applications/:appid/modules/:modid/submodules', component: SubmodulesComponent },
 ];
 
 @NgModule({

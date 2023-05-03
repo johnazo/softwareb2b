@@ -1,0 +1,21 @@
+<div>
+    <h1>Software B2B</h1>
+    <p>Hola. Esta es la página principal de SoftwareB2B. Para comnenzar por favor seleccione una aplicación del menú de
+        aplicaciones soportadas que tenemos disponibles abajo.</p>
+</div>
+
+<div class="card-container">
+    <mat-card class="example-card" *ngFor="let app of apps" (click)="appClicked(app)">
+        <mat-card-header>
+            <mat-card-title>{{ app.name }}</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="/assets/img/application.png" alt="App - {{ app.name }}">
+        <mat-card-content>
+            <p>
+                {{ app.description }}
+            </p>
+        </mat-card-content>
+    </mat-card>
+
+</div>
