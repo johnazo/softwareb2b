@@ -10,7 +10,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
-import { ApplicationsComponent } from './applications/applications.component';
 import { ModulesComponent } from './modules/modules.component';
 import { HomeComponent } from './home/home.component';
 import { ApplicationService } from './core/application.service';
@@ -21,7 +20,6 @@ import { SubmoduleComponent } from './submodule/submodule.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ApplicationsComponent,
     ModulesComponent,
     HomeComponent,
     SubmodulesComponent,
