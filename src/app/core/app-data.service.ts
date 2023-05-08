@@ -19,7 +19,7 @@ export class AppDataService {
                 id: i - 1,
                 name: "Applicación " + i,
                 description: "Aplicación " + i,
-                img_filename: "/assets/img/application.png",
+                img_filename: "/static/assets/img/application.png",
                 keywords: [],
                 modules: []
             })
@@ -35,7 +35,7 @@ export class AppDataService {
                 id: i - 1,
                 name: "Módulo " + i,
                 description: "Módulo " + i + " de la Aplicación " + (app.id + 1),
-                img_filename: "/assets/img/module.png",
+                img_filename: "/static/assets/img/module.png",
                 keywords: [],
                 submodules: []
             })
@@ -51,6 +51,7 @@ export class AppDataService {
                 id: i - 1,
                 name: "Submódulo " + i,
                 description: "Submódulo " + i + " del Módulo " + (module.id + 1) + " de la Aplicación " + (app.id + 1),
+                img_filename: "/static/assets/img/module.png",
                 keywords: [],
                 url: 'http://demourl.submodule.softwareb2b.johncruz.co/app/' + app.id + '/mod/' + module.id + '/submod/' + (i - 1)
             })

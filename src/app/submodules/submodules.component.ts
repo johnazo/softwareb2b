@@ -13,7 +13,7 @@ export class SubmodulesComponent implements OnInit {
 
   state: AppState | null = null
   appSubModules: AppModule[] = []
-  genericImg: string = '/assets/img/module.png'
+  genericImg: string = '/static/assets/img/module.png'
 
   constructor(
     private route: ActivatedRoute,

@@ -12,7 +12,7 @@ import { ApplicationService } from '../core/application.service';
 export class ModulesComponent implements OnInit {
 
   state: AppState | null
-  genericImg: string = '/assets/img/module.png'
+  genericImg: string = '/static/assets/img/module.png'
 
   appModules: AppModule[] = []
   constructor(

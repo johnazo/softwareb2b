@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   state: AppState | null = null
   apps: AppApplication[] = []
-  genericImg: string = '/assets/img/application.png'
+  genericImg: string = '/static/assets/img/application.png'
 
   constructor(
     private router: Router,

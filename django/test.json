@@ -1,0 +1,64 @@
+{
+    "detectIntentResponseId": "c3744091-ae80-461b-b2cb-96513517b048",
+    "intentInfo": {
+        "lastMatchedIntent": "projects/avian-presence-385802/locations/us-east1/agents/266cf6b8-20b6-4247-b40b-871a55eac739/intents/b205f892-8eee-4a19-ab71-18a3d0d4ebf7",
+        "parameters": {
+            "module": {
+                "originalValue": "informes",
+                "resolvedValue": {
+                    "original": "informes"
+                }
+            },
+            "supportobject": {
+                "originalValue": "información",
+                "resolvedValue": "información"
+            }
+        },
+        "displayName": "ModuleSupport",
+        "confidence": 0.6718504
+    },
+    "pageInfo": {
+        "currentPage": "projects/avian-presence-385802/locations/us-east1/agents/266cf6b8-20b6-4247-b40b-871a55eac739/flows/d7b5aef4-d5d1-4413-9e48-a206ed0f6d53/pages/415d200a-eee1-41b4-8d23-89bc67502723",
+        "formInfo": {
+            "parameterInfo": [
+                {
+                    "displayName": "Module",
+                    "required": True,
+                    "state": "FILLED",
+                    "value": {
+                        "original": "informes"
+                    }
+                }
+            ]
+        },
+        "displayName": "CollectInformation"
+    },
+    "sessionInfo": {
+        "session": "projects/avian-presence-385802/locations/us-east1/agents/266cf6b8-20b6-4247-b40b-871a55eac739/sessions/782d56-c3c-634-476-2423a68ef",
+        "parameters": {
+            "module": {
+                "original": "informes"
+            },
+            "supportobject": "información"
+        }
+    },
+    "fulfillmentInfo": {
+        "tag": "session"
+    },
+    "messages": [
+        {
+            "text": {
+                "text": [
+                    "Claro que sí!"
+                ],
+                "redactedText": [
+                    "Claro que sí!"
+                ]
+            },
+            "responseType": "ENTRY_PROMPT",
+            "source": "VIRTUAL_AGENT"
+        }
+    ],
+    "text": "Necesito información a cerca del módulo de informes",
+    "languageCode": "es"
+}
