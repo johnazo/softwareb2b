@@ -31,7 +31,6 @@ export class ModulesComponent implements OnInit {
 
   private getApp(id: string) {
     let appId = parseInt(id)
-    console.log(appId)
     this.router.navigate(["/"])
     return null
   }

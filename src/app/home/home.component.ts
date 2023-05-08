@@ -19,7 +19,11 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private appService: ApplicationService,
     private appDataService: AppDataService
-  ) { }
+  ) {
+    this.appService.changeState({
+      app: null, module: null, submodule: null
+    })
+  }
 
   appClicked(item: AppApplication) {
     this.appService.changeState({

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicationService } from '../core/application.service';
-import { AppState } from '../core/models';
+import { AppModule, AppState } from '../core/models';
 import { Router } from '@angular/router';
+import { AppDataService } from '../core/app-data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-submodule',
@@ -15,7 +17,7 @@ export class SubmoduleComponent implements OnInit {
 
   constructor(
     private applicationService: ApplicationService,
-    private router: Router
+    private router: Router,
   ) {
     this.appState = this.applicationService.appStateValue
   }
@@ -31,9 +33,8 @@ export class SubmoduleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.appState || !this.appState.app || !this.appState.module || !this.appState.submodule)
+    if (!this.appState || !this.appState.app || !this.appState.module)
       this.router.navigate(['/'])
   }
-
 
 }

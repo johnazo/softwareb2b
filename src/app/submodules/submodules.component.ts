@@ -3,6 +3,7 @@ import { AppModule, AppState } from '../core/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppDataService } from '../core/app-data.service';
 import { ApplicationService } from '../core/application.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-submodules',
@@ -20,8 +21,14 @@ export class SubmodulesComponent implements OnInit {
     private router: Router,
     private appDataService: AppDataService,
     private appService: ApplicationService,
+    private location: Location
   ) {
-
+    this.state = this.appService.appStateValue
+    if (!this.state || !this.state.app || !this.state.module)
+      this.router.navigate(['/'])
+    else {
+      this.appSubModules = this.appDataService.getAppSubModules(this.state.app, this.state.module)
+    }
   }
 
   buttonClicked(event: Event, item: any) {
@@ -43,12 +50,10 @@ export class SubmodulesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.state = this.appService.appStateValue
-    if (!this.state || !this.state.app || !this.state.module)
-      this.router.navigate(['/'])
-    else {
-      this.appSubModules = this.appDataService.getAppSubModules(this.state.app, this.state.module)
+    if (!this.appSubModules || !this.appSubModules.length) {
+      this.location.back()
     }
+
   }
 
 }

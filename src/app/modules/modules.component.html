@@ -9,6 +9,9 @@
             <p>
                 {{ module.description }}
             </p>
+            <p *ngIf="module.url && module.url!= ''"><strong>Link: </strong>
+                <a href="{{ module.url }}">{{ module.url }}</a>
+            </p>
         </mat-card-content>
     </mat-card>
 </div>
