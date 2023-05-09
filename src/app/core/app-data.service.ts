@@ -7,15 +7,12 @@ import { AppData } from "./application-data";
 })
 export class AppDataService {
 
-    private appData: AppApplication[]
-
     constructor() {
-        this.appData = AppData
     }
 
     getApplications() {
         let apps: AppApplication[] = []
-        this.appData.forEach(app => {
+        AppData.forEach(app => {
             apps.push({
                 id: app.id,
                 name: app.name,
@@ -30,7 +27,7 @@ export class AppDataService {
 
     getAppModules(_app: AppApplication) {
         let modules: AppModule[] = []
-        let apps = this.appData.filter(app => app.id == _app.id)
+        let apps = AppData.filter(app => app.id == _app.id)
         let app = apps.at(0) || null
         if (app) {
             app.modules.forEach(module => {
@@ -45,17 +42,15 @@ export class AppDataService {
                 })
             });
         }
-        console.log(modules)
-        console.log(this.appData)
         return modules
     }
 
     getAppSubModules(_app: AppApplication, _module: AppModule) {
         let submodules: AppModule[] = []
-        let apps = this.appData.filter(app => app.id == _app.id)
+        let apps = AppData.filter(app => app.id == _app.id)
         let app = apps.at(0) || null
         if (app) {
-            let modules = app.modules.filter(module => module.id = _module.id)
+            let modules = app.modules.filter(module => module.id == _module.id)
             let module = modules.at(0) || null
             if (module != undefined) {
                 module.submodules?.forEach(submodule => {

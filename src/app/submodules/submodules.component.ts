@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class SubmodulesComponent implements OnInit {
 
-  state: AppState | null = null
+  appState: AppState | null = null
   appSubModules: AppModule[] = []
   genericImg: string = '/static/assets/img/module.png'
 
@@ -23,12 +23,11 @@ export class SubmodulesComponent implements OnInit {
     private appService: ApplicationService,
     private location: Location
   ) {
-    this.state = this.appService.appStateValue
-    if (!this.state || !this.state.app || !this.state.module)
+    this.appState = this.appService.appStateValue
+    if (!this.appState || !this.appState.app || !this.appState.module)
       this.router.navigate(['/'])
-    else {
-      this.appSubModules = this.appDataService.getAppSubModules(this.state.app, this.state.module)
-    }
+    else
+      this.appSubModules = this.appDataService.getAppSubModules(this.appState.app, this.appState.module)
   }
 
   buttonClicked(event: Event, item: any) {
@@ -39,7 +38,7 @@ export class SubmodulesComponent implements OnInit {
 
   submoduleClicked(item: AppModule) {
     this.appService.setSubmodule(item)
-    this.router.navigate(['applications', this.state!.app!.id, 'modules', this.state!.module!.id, 'submodule', item.id])
+    this.router.navigate(['applications', this.appState!.app!.id, 'modules', this.appState!.module!.id, 'submodule', item.id])
   }
 
   private getApp(id: string) {

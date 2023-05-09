@@ -11,7 +11,7 @@ import { ApplicationService } from '../core/application.service';
 })
 export class ModulesComponent implements OnInit {
 
-  state: AppState | null
+  appState: AppState | null
   genericImg: string = '/static/assets/img/module.png'
 
   appModules: AppModule[] = []
@@ -21,12 +21,13 @@ export class ModulesComponent implements OnInit {
     private appDataService: AppDataService,
     private appService: ApplicationService,
   ) {
-    this.state = this.appService.appStateValue
+    this.appState = this.appService.appStateValue
+    this.appService.setModule(null)
   }
 
   moduleClicked(item: any) {
     this.appService.setModule(item)
-    this.router.navigate(['/applications/' + this.state!.app!.id + '/modules/' + item.id + '/submodules/'])
+    this.router.navigate(['/applications/' + this.appState!.app!.id + '/modules/' + item.id + '/submodules/'])
   }
 
   private getApp(id: string) {
@@ -36,10 +37,10 @@ export class ModulesComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (!this.state || !this.state.app)
+    if (!this.appState || !this.appState.app)
       this.router.navigate(['/'])
     else {
-      this.appModules = this.appDataService.getAppModules(this.state.app)
+      this.appModules = this.appDataService.getAppModules(this.appState.app)
     }
   }
 

@@ -99,16 +99,7 @@ let AppData: AppApplication[] = [
                 img_filename: '/static/assets/module.png',
                 keywords: ['clientes'],
                 url: 'http://www.poseidon.com.co/terceros',
-                submodules: [
-                    {
-                        id: 0,
-                        name: "Sub Módulo Cliente 1",
-                        description: "Sub Módulo de Cliente 1",
-                        img_filename: '/static/assets/module.png',
-                        keywords: ['clientes'],
-                        url: 'http://www.poseidon.com.co/terceros',
-                    },
-                ]
+                submodules: []
             },
         ]
     }

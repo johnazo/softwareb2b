@@ -44,29 +44,46 @@ class ModuleCreate(CreateAPIView):
         logging.info(data)
         # print(data)
 
-        lookup = data['sessionInfo']['parameters']['module']['original']
-        logging.info(lookup)
+        server_status = False
+        server_message = "No se encontró información al respecto."
 
-        instance = self.get_queryset().filter(name=lookup).first()
-        serializer = self.get_serializer(instance)
-        # result = {
-        #     'fulfillment': {
-        #         'messages': [
-        #             {
-        #             'text': instance.url
-        #             }
-        #             ]
-        #     },
-        #     'payload': serializer.data
-        #     }
-        result = {
-                "sessionInfo": {
-                    "parameters": {
-                        "instance": serializer.data,
-                        "url": serializer.data["url"]
+        lookup_application = data['sessionInfo']['parameters']['application']['original'] if 'application' in data['sessionInfo']['parameters'] else None
+        lookup_module = data['sessionInfo']['parameters']['module']['original'] if 'module' in data['sessionInfo']['parameters'] else None
+        logging.info(lookup_application, lookup_module)
+
+        if lookup_application is None or lookup_module is None:
+            result = {
+                    "sessionInfo": {
+                        "parameters": {
+                            "instance": None,
+                            "url": None,
+                            "server_message": server_message,
+                            "server_status": server_status
+                        },
                     },
-                },
-        }
+            }
+        else:
+            server_status = False
+            server_message = server_message + " Buscando por aplicación: %s y módulo: %s" %(lookup_application, lookup_module)
+            instance = self.get_queryset().filter(name__icontains=lookup_module,
+                                                application__name__icontains=lookup_application).first()
+            serializer = self.get_serializer(instance)
+
+            if instance is not None:
+                server_message = 'Bueno. Esta es la URL para el módulo %s de la aplicación %s' %(lookup_module, lookup_application)
+                server_status = True
+
+
+            result = {
+                    "sessionInfo": {
+                        "parameters": {
+                            "instance": serializer.data,
+                            "url": serializer.data["url"],
+                            "server_message": server_message,
+                            "server_status": server_status
+                        },
+                    },
+            }
         logging.info(result)
         return Response(result)
 
