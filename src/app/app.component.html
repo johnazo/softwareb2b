@@ -24,6 +24,14 @@
     Módulos
   </button>
   <span class="spacer-b2b"></span>
+  <div class="search-div">
+    <mat-form-field appearance="fill" class="search-field">
+      <input matInput [formControl]="search">
+    </mat-form-field>
+    <button mat-button class="" aria-label="">
+      Buscar
+    </button>
+  </div>
   <div *ngIf="false">
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>favorite</mat-icon>

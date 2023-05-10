@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppState } from './core/models';
 import { ApplicationService } from './core/application.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,15 @@ export class AppComponent {
   title = 'softwareb2b';
 
 
+  search: FormControl
+
   constructor(
     private applicationService: ApplicationService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.search = this.fb.control('')
+  }
 
   appBtnClicked() {
     this.applicationService.changeState({
